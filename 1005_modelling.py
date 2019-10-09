@@ -81,22 +81,51 @@ print(predData)
 #train 데이터와 test 데이터로 나누어줍니다.
 import numpy as np
 from sklearn.model_selection import train_test_split
-X_train, X_test, Y_train, Y_test = train_test_split(predData, category, test_size=0.33, random_state=321) #3,4번째 인자 바꾸어주면됨
+X_train, X_test, train_labels, test_labels = train_test_split(predData, category, test_size=0.33, random_state=321) #3,4번째 인자 바꾸어주면됨
+from keras.utils.np_utils import to_categorical
+Y_train = to_categorical(train_labels) # 라벨데이터 원 핫 인코딩(0-9사이의값(?))
+Y_test = to_categorical(test_labels)
 
 #MODEL
-#출력층에 1개의 뉴런에 활성화 함수로는 시그모이드 함수를 사용하여 이진 분류를 수행합니다.
 from keras.models import Sequential
-
-from keras.layers import Dense, Embedding, Flatten
-
+from keras.layers import Dense
+# 2. 모델 구성하기
 model = Sequential()
-model.add(Embedding(vocab_size, 4, input_length=max_len)) # 모든 임베딩 벡터는 4차원을 가지게됨.
-model.add(Flatten()) # Dense의 입력으로 넣기위함임.
-model.add(Dense(1, activation='sigmoid'))
+model.add(Dense(64, input_dim=1, activation='relu'))
+model.add(Dense(10, activation='softmax'))
 
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['acc'])
+# 3. 모델 학습과정 설정하기
+model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
 
-model.fit(X_train, Y_train, epochs=100, verbose=2)
+# 4. 모델 학습시키기
+hist = model.fit(X_train, Y_train, epochs=10, batch_size=100, verbose=2) #epochs 반복횟수, batch_size 한번에 보는 데이터 횟수
+#https://snowdeer.github.io/machine-learning/2018/01/11/keras-model-fit-options/
+
+# 5. 학습과정 확인하기
+import matplotlib.pyplot as plt
+
+fig, loss_ax = plt.subplots()
+
+acc_ax = loss_ax.twinx()
+
+loss_ax.set_ylim([0.0, 3.0])
+acc_ax.set_ylim([0.0, 1.0])
+
+loss_ax.plot(hist.history['loss'], 'y', label='train loss')
+acc_ax.plot(hist.history['acc'], 'b', label='train acc')
+
+loss_ax.set_xlabel('epoch')
+loss_ax.set_ylabel('loss')
+acc_ax.set_ylabel('accuray')
+
+loss_ax.legend(loc='upper left')
+acc_ax.legend(loc='lower left')
+
+plt.show()
+
+# 6. 모델 평가하기
+loss_and_metrics = model.evaluate(X_test, Y_test, batch_size=32)
+print('loss_and_metrics : ' + str(loss_and_metrics))
 
 #TEST
 model.evaluate(X_test, Y_test, batch_size=32)
