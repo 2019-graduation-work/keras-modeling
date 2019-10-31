@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1b12462-423f-4519-9919-36266d0a02f6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inputfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trained_model.h5" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1005_modelling.py" beforeDir="false" afterPath="$PROJECT_DIR$/1005_modelling.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0930text.py" beforeDir="false" afterPath="$PROJECT_DIR$/0930text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crowling2.py" beforeDir="false" afterPath="$PROJECT_DIR$/crowling2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wordCloud.py" beforeDir="false" afterPath="$PROJECT_DIR$/wordCloud.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,10 +31,14 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/text" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HYERIN\Documents\GitHub\keras-modeling\text" />
+      <recent name="C:\Users\HYERIN\Documents\GitHub\keras-modeling" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\HYERIN\PycharmProjects\untitled" />
     </key>

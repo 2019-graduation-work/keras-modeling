@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 title_list = []
 
 def get_titles():
-    f = open("C:/Users/HYERIN/PycharmProjects/untitled/text/merged.txt", "r", encoding='utf-8')
+    f = open("C:/Users/HYERIN/PycharmProjects/untitled/text/merged_travel_place(5827).txt", "r", encoding='utf-8')
 
     for i in range(1, 210):
         line = f.readline()  # 한 줄씩 읽음.
@@ -40,9 +40,10 @@ def make_wordcloud(word_count):
     for sentence1 in sentences_tag:
         for word, tag in sentence1:
             if tag in ['Noun']:
-                if word not in ['것','수','거','곳','저','안','제','더','때','이','진짜','바로','정말',
-                                '여기','개','분','정도','그','요','중','밤','그','요','중','위','나','내',
-                                '가장','게','점','또','달','해','은','향','번','날','아주','완전','꼭','듯',]:
+                if word not in ['것', '수', '거', '곳', '저', '안', '제', '더', '때', '이', '진짜', '바로', '정말',
+            '여기', '개', '분', '정도', '그', '요', '중', '밤', '그', '요', '중', '위', '나', '내',
+            '가장', '게', '점', '좀', '또', '달', '말', '해', '은', '향', '번', '날', '아주', '완전', '꼭', '듯',
+            '그냥', '조금', '듯', '층', '사실', '도', '뭐', '살', '살짝', '걸', '쪽', '얼', '만', '꽤', '후']:
                     noun_adj_list.append(word)
 
     # 형태소별 count

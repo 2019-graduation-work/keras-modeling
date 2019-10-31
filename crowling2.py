@@ -149,4 +149,4 @@ def get_blog_post(search_blog_keyword, display_count, search_result_blog_page_co
     file.close()
 
 if __name__ == '__main__':
-    naver_blog_crawling("기초+화장품+후기", 5, "sim") #?첫번째인자 검색하고싶은 검색 값
+    naver_blog_crawling("기초 화장품 후기", 1, "sim") #?첫번째인자 검색하고싶은 검색 값
